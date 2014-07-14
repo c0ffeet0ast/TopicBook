@@ -1,17 +1,17 @@
 <!doctype html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="topicMark">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="topicBook">
 <![endif]-->
-<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" ng-app="topicMark">
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" ng-app="topicBook">
 <![endif]-->
-<!--[if IE 8]> <html class="no-js lt-ie9" ng-app="topicMark">
+<!--[if IE 8]> <html class="no-js lt-ie9" ng-app="topicBook">
 <![endif]-->
 <!--[if gt IE 8]><!--> 
-<html class="no-js" ng-app="topicMark"><!--<![endif]-->
+<html class="no-js" ng-app="topicBook"><!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>토픽북마크 웹 애플리케이션</title>
-    <meta name="description" content="토픽북마크 웹 애플리케이션">
+    <title>토픽북 웹 애플리케이션</title>
+    <meta name="description" content="토픽북 웹 애플리케이션">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
@@ -23,29 +23,29 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-controller="bookmarkMainCtrl">
+  <body ng-controller="topicMainCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">topicMark</h3>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">토픽북(TopicBook)</a>
       </div>
-
-      <div ng-view=""></div>
-
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      <div class="navbar-inner">
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" size="80" placeholder="주제(Topic)를 검색하세요." ng-model="searchInfo.topicname">
+          </div>
+          <button type="submit" class="btn btn-default" ng-click="search(searchInfo)">검색</button>
+        </form>
       </div>
-    </div>
+    </nav>
 
+  <div class="container">
+    <ng-view></ng-view> 
+  </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -76,7 +76,10 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/topic/services/topicSvc.js"></script>
+        <script src="scripts/topic/controllers/topicDetailCtrl.js"></script>
+        <script src="scripts/topic/controllers/topicAddCtrl.js"></script>
+        <script src="scripts/topic/controllers/topicListCtrl.js"></script>
+        
         <!-- endbuild -->
 </body>
