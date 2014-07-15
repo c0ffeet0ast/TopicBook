@@ -1,0 +1,22 @@
+<div class="panel">
+	<h4 style="color: gray;">{{topic.topicname}}</h4>
+</div>
+
+	<a ng-repeat="bookmark in topic.bookmark" ng-href="{{bookmark.url}}" target="_blank" >
+		<pre>{{bookmark.url}}</pre>
+	</a>
+ 
+
+<div class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    
+    <div class="navbar-inner">
+      <form class="navbar-form navbar-right" name="bookmarkName" role="form">
+          <div class="form-group">
+            <input type="text" class="form-control"  ng-model="url" size="100" placeholder="새로운 북마크 URL을 이곳에서 추가해보세요. (꼭 앞에 http:// 를 붙인 FullURL로 추가해주세요.)" ng-required="true">
+          </div>
+          <button style="margin-left: 30px; margin-right: 70px;" type="submit" class="btn btn-default navbar-btn" ng-click="add(url)" ng-disabled="bookmarkName.$invalid">
+             <span class="glyphicon glyphicon-plus"></span> 새로운 URL 추가 
+          </button>
+        </form>
+    </div>
+  </div>
