@@ -22,6 +22,22 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <script>
+  /* we need this only on touch devices */
+if (Modernizr.touch) {
+    /* cache dom references */ 
+    var $body = jQuery('body'); 
+
+    /* bind events */
+    $(document)
+    .on('focus', 'input', function(e) {
+        $(body).addClass('fixfixed');
+    })
+    .on('blur', 'input', function(e) {
+        $body.removeClass('fixfixed');
+    });
+} 
+</script>
   </head>
   <body ng-controller="topicMainCtrl">
     <!--[if lt IE 7]>
@@ -42,7 +58,7 @@
       <div class="collapse navbar-collapse" id="toggle">
         <form class="navbar-form navbar-left" role="search" style="border-top-width: 0; border-bottom-width: 0;">
           <div class="form-group">
-            <input type="text" class="form-control" size="80" placeholder="주제(Topic)를 검색하세요." ng-model="searchInfo.topicname">
+            <input type="text" class="form-control" size="75" placeholder="주제(Topic)를 검색하세요." ng-model="searchInfo.topicname">
           </div>
           <button type="submit" class="btn btn-default" ng-click="search(searchInfo)">검색</button>
         </form>
@@ -77,6 +93,7 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/Modernizr/Modernizr.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

@@ -15,6 +15,29 @@
 	-webkit-overflow-scrolling: touch;
 }
 
+.navbar .nav,
+.navbar .nav > li {
+  float:none;
+  display:inline-block;
+  *display:inline; /* ie7 fix */
+  *zoom:1; /* hasLayout ie7 trigger */
+  vertical-align: top;
+}
+
+.fixfixed .container
+{ 
+    position: absolute; 
+} 
+
+body {
+    padding-bottom: 90px;
+
+  }
+
+.navbar-inner {
+  text-align:center;
+}
+
 .grid {
 	-webkit-column-count: 3;
 	-webkit-column-gap: 10px;
@@ -73,6 +96,7 @@ pre {
 		-moz-column-count: 4;
 		column-count: 4;
 	}
+
 
 }
 
